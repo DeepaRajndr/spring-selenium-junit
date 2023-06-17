@@ -6,29 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
-import com.github.javafaker.Faker;
 import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
+import java.time.LocalDateTime;
 @Lazy
 @Service
-public class ScreenShotUtil {
+public class ScreenShotService {
 
     @Autowired
     private ApplicationContext ctx;
 
-    @Autowired
-    private Faker faker;
+    private LocalDateTime localDateTime;
 
     @Value("${screenshot.path}")
     private Path path;
     public void takesScreenshot() throws IOException {
+        localDateTime = LocalDateTime.now();
         File sourceFile = this.ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.FILE);
-        FileCopyUtils.copy(sourceFile, this.path.resolve(faker.name().firstName() + ".png").toFile());
+        FileCopyUtils.copy(sourceFile, this.path.resolve(localDateTime + ".png").toFile());
     }
 
 

@@ -1,5 +1,6 @@
 package com.udemy.spring.springselenium.page.google;
 
+import com.udemy.spring.springselenium.common.annotation.TakeScreenshot;
 import com.udemy.spring.springselenium.common.config.annotation.PageFragment;
 import com.udemy.spring.springselenium.page.Base;
 import org.openqa.selenium.WebElement;

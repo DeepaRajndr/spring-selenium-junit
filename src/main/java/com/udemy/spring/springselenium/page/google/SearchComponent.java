@@ -15,7 +15,8 @@ public class SearchComponent extends Base {
 
     @FindBy(name = "btnK")
     private List<WebElement> searchBtns;
-     public void search (final String keyword){
+
+    public void search (final String keyword){
         this.searchBox.sendKeys(keyword);
         this.searchBox.sendKeys(Keys.TAB);
         this.searchBtns

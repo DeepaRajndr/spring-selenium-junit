@@ -2,27 +2,24 @@ package com.udemy.spring.springselenium.googletest;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.udemy.spring.springselenium.page.google.GooglePage;
-import com.udemy.spring.springselenium.common.service.ScreenShotUtil;
+import com.udemy.spring.springselenium.common.service.ScreenShotService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.annotation.Lazy;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 @SpringBootTest
-@RunWith(SpringRunner.class)
 public class Google2Test {
     @Autowired
     private GooglePage googlePage;
 
     @Lazy
     @Autowired
-    private ScreenShotUtil screenShotUtil;
+    private ScreenShotService screenShotUtil;
 
     @Test
     public void googleTest() throws IOException {
