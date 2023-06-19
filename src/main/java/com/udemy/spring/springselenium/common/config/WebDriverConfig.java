@@ -29,6 +29,8 @@ public class WebDriverConfig {
     @ConditionalOnMissingBean
     public WebDriver chromeDriver() {
         WebDriverManager.chromedriver().setup();
-        return new ChromeDriver();
+        WebDriver driver = new ChromeDriver();
+        Runtime.getRuntime().addShutdownHook(new Thread(driver::quit));
+        return driver;
     }
 }

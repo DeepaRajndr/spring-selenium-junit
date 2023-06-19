@@ -30,6 +30,8 @@ public class ScreenShotService {
         FileCopyUtils.copy(sourceFile, this.path.resolve(localDateTime + ".png").toFile());
     }
 
-
+    public byte[] getScreenShot() {
+        return this.ctx.getBean(TakesScreenshot.class).getScreenshotAs(OutputType.BYTES);
+    }
 
 }

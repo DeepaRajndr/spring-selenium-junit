@@ -4,7 +4,6 @@ import com.udemy.spring.springselenium.common.annotation.LazyAutowired;
 import com.udemy.spring.springselenium.page.google.GooglePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
-import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.junit.Assert;
@@ -25,7 +24,7 @@ public class GoogleSteps {
     public void enterKeyword(String keyword) {
         this.googlePage.getSearchComponent().search(keyword);
     }
-    @And("I click on the search button")
+    @Then("I should see search results page")
     public void clickSearch() {
         Assert.assertTrue(this.googlePage.getSearchResult().isAt());
     }
