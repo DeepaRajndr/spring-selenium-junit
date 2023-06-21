@@ -7,17 +7,22 @@ import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
 import io.cucumber.spring.CucumberContextConfiguration;
 import org.junit.Assert;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
 @CucumberContextConfiguration
+@SpringBootTest
 public class GoogleSteps {
+
+    private static final Logger logger = LoggerFactory.getLogger(GoogleSteps.class);
 
     @LazyAutowired
     private GooglePage googlePage;
 
     @Given("I am on the google site")
     public void launchSite() {
+        logger.info("GIVEN : I am on the google site");
         this.googlePage.goTo();
     }
     @When("I enter {string} as the keyword")

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 @Page
 public class GooglePage extends Base {
 
+
     @Autowired
     private SearchComponent searchComponent;
 

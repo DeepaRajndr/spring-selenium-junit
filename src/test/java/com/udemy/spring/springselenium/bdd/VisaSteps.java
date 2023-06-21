@@ -6,14 +6,17 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
 import org.junit.Assert;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import java.time.LocalDate;
 
+
 public class VisaSteps {
+
+    private static final Logger logger = LoggerFactory.getLogger(VisaSteps.class);
 
     @LazyAutowired
     private VisaRegistrationPage registrationPage;
@@ -46,6 +49,7 @@ public class VisaSteps {
 
     @And("I enter the comment {string}")
     public void enterComment(String comment) {
+        logger.info("GIVEN : I enter the comment {string}");
         this.registrationPage.setComments(comment);
     }
 
