@@ -5,14 +5,11 @@ import com.udemy.spring.springselenium.page.google.GooglePage;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
 import io.cucumber.java.en.Then;
-import io.cucumber.spring.CucumberContextConfiguration;
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-@CucumberContextConfiguration
-@SpringBootTest
+
 public class GoogleSteps {
 
     private static final Logger logger = LoggerFactory.getLogger(GoogleSteps.class);
@@ -31,11 +28,11 @@ public class GoogleSteps {
     }
     @Then("I should see search results page")
     public void clickSearch() {
-        Assert.assertTrue(this.googlePage.getSearchResult().isAt());
+        assertTrue(this.googlePage.getSearchResult().isAt());
     }
     @Then("I should see at least {int} results")
     public void verifyResults(int count){
-        Assert.assertTrue(this.googlePage.getSearchResult().getCount() >=count);
+        assertTrue(this.googlePage.getSearchResult().getCount() >=count);
     }
 }
 

@@ -4,6 +4,7 @@ import com.udemy.spring.springselenium.common.annotation.TakeScreenshot;
 import com.udemy.spring.springselenium.entity.Customer;
 import com.udemy.spring.springselenium.page.visa.VisaRegistrationPage;
 import com.udemy.spring.springselenium.repository.CustomerRepository;
+
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -12,8 +13,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import java.sql.Date;
-import java.sql.SQLOutput;
+
 
 import static org.junit.jupiter.api.TestInstance.Lifecycle.PER_CLASS;
 

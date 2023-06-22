@@ -6,11 +6,13 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import java.time.LocalDate;
 
 
@@ -23,7 +25,7 @@ public class VisaSteps {
     @Given("I am on VISA registration form")
     public void launchSite() {
         this.registrationPage.goTo();
-        Assert.assertTrue(this.registrationPage.isAt());
+        assertTrue(this.registrationPage.isAt());
     }
 
     @When("I select my from country {string} and to country {string}")
@@ -61,6 +63,6 @@ public class VisaSteps {
     @Then("I should see get the confirmation number")
     public void verifyConfirmationNumber() {
         boolean isEmpty = StringUtils.isEmpty(this.registrationPage.getConfirmationNumber().trim());
-        Assert.assertFalse(isEmpty);
+        assertFalse(isEmpty);
     }
 }
