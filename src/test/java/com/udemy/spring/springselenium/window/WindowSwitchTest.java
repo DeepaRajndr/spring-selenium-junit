@@ -1,12 +1,11 @@
 package com.udemy.spring.springselenium.window;
 
-import com.udemy.spring.springselenium.common.service.WindowsSwitchService;
+
 import com.udemy.spring.springselenium.page.window.MainPage;
 import com.udemy.spring.springselenium.page.window.PageA;
 import com.udemy.spring.springselenium.page.window.PageB;
 import com.udemy.spring.springselenium.page.window.PageC;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;

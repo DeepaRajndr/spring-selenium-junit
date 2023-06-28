@@ -1,4 +1,4 @@
-package com.udemy.spring.springselenium.common.config.annotation;
+package com.udemy.spring.springselenium.common.annotation;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.context.annotation.Scope;
@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Component
 @Scope("prototype")
 @Documented
-@Target({ElementType.TYPE})
+@Target({ ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 public @interface PageFragment {
 }

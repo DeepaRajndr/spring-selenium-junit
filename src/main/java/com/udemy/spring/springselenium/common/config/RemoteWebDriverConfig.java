@@ -1,6 +1,7 @@
 package com.udemy.spring.springselenium.common.config;
 
 import com.udemy.spring.springselenium.common.annotation.LazyConfiguration;
+import com.udemy.spring.springselenium.common.annotation.ThreadScopeBean;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -19,11 +20,13 @@ public class RemoteWebDriverConfig {
     @Value("${selenium.grid.url}")
     private URL url;
 
+    @ThreadScopeBean
     @ConditionalOnProperty(name = "browser", havingValue = "firefox")
     public WebDriver remoteFirefoxDriver(){
         return new RemoteWebDriver(this.url, new ChromeOptions());
     }
 
+    @ThreadScopeBean
     @ConditionalOnMissingBean
     public WebDriver remoteChromeDriver(){
         return new RemoteWebDriver(this.url, new FirefoxOptions());

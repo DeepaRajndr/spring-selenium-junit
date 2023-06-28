@@ -1,6 +1,7 @@
 package com.udemy.spring.springselenium.page.visa;
+
 import com.udemy.spring.springselenium.common.annotation.TakeScreenshot;
-import com.udemy.spring.springselenium.common.config.annotation.Page;
+import com.udemy.spring.springselenium.common.annotation.Page;
 import com.udemy.spring.springselenium.page.Base;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -10,14 +11,15 @@ import org.slf4j.LoggerFactory;
 
 import java.time.LocalDate;
 import java.util.Objects;
+
 @Page
-public class VisaRegistrationPage extends Base{
+public class VisaRegistrationPage extends Base {
 
     private static final Logger logger = LoggerFactory.getLogger(VisaRegistrationPage.class);
-    @FindBy(id ="first_4")
+    @FindBy(id = "first_4")
     private WebElement firstName;
 
-    @FindBy(id ="last_4")
+    @FindBy(id = "last_4")
     private WebElement lastName;
 
     @FindBy(id = "input_46")
@@ -50,41 +52,43 @@ public class VisaRegistrationPage extends Base{
     @FindBy(id = "requestnumber")
     private WebElement requestNumber;
 
-    public void goTo(){
+    public void goTo() {
         this.driver.get("https://vins-udemy.s3.amazonaws.com/sb/visa/udemy-visa.html");
     }
 
-    public void setNames(String firstName, String lastName){
+    public void setNames(String firstName, String lastName) {
         logger.info("Setting First Name : " + firstName);
         this.firstName.sendKeys(firstName);
         this.lastName.sendKeys(lastName);
     }
 
-    public void setCountryFromAndTo(String countryFrom, String countryTo){
+    public void setCountryFromAndTo(String countryFrom, String countryTo) {
         new Select(this.fromCountry).selectByValue(countryFrom);
         new Select(this.toCountry).selectByValue(countryTo);
     }
 
-    public void setBirthDate(LocalDate localDate){
+    public void setBirthDate(LocalDate localDate) {
         new Select(this.year).selectByVisibleText(String.valueOf(localDate.getYear()));
         new Select(this.day).selectByVisibleText(String.valueOf(localDate.getDayOfMonth()));
         new Select(this.month).selectByValue(localDate.getMonth().toString());
     }
 
-    public void setContactDetails(String email, String phone){
+    public void setContactDetails(String email, String phone) {
         this.email.sendKeys(email);
         this.phone.sendKeys(phone);
     }
 
-    public void setComments(String comments){
+    public void setComments(String comments) {
         this.comments.sendKeys(Objects.toString(comments, ""));
     }
+
     @TakeScreenshot
-    public void submit(){
+    public void submit() {
         this.submit.click();
     }
+
     @TakeScreenshot
-    public String getConfirmationNumber(){
+    public String getConfirmationNumber() {
         this.wait.until((d) -> this.requestNumber.isDisplayed());
         return this.requestNumber.getText();
     }

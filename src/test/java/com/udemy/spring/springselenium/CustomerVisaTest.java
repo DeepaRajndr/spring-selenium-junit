@@ -31,12 +31,6 @@ public class CustomerVisaTest {
     @ParameterizedTest
     @MethodSource("getData")
     public void visaTest(Customer u){
-        this.repository.findByFirstNameStartingWith(
-                        "Mi"
-                )
-                .stream()
-                .limit(3)
-                .toArray();
 
         this.registrationPage.goTo();
         this.registrationPage.setNames(u.getFirstName(), u.getLastName());
